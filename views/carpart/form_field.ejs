@@ -1,0 +1,48 @@
+
+
+
+<!--    creating a from and calling the bootstrap form class for better display           -->
+  <!--   validating user input in form and linking every field data to corresponding id. Therby submiting it as a form        -->
+<div class="form-group">
+  <label for="Manufacturer">Manufacturer</label>
+
+  <!--   setting the input field as required so the user cant skip the field. Also checking the user input with regex pattern to see if user input matches with alphabets.
+if a user enter anything other than alphabet an error is show.
+Also defining the allowed length of data to be 25. So if a user type more than 25 character a error is shown.         -->
+  <input  required value="<%= part.Manufacturer %>" type="text" pattern="[A-zÀ-ž\s]+"  name="Manufacturer" id="Manufacturer" maxlength="25" class="form-control">
+</div>
+ <!--   setting the input field as required so the user cant skip the field. Also checking the user input with regex pattern to see if user input matches with alphabets and numbers.
+if a user enter anything other than alphabet and numbers an error is show.
+Also defining the allowed length of data to be 20. So if a user type more than 20 character a error is shown.         -->
+
+<div class="form-group">
+  <label for="Model">Model</label>
+
+  <input  required value="<%= part.Model %>" type="text" pattern="[A-z0-9À-ž\s]+" name="Model" id="Model"   maxlength="20" class="form-control">
+</div>
+
+ <!--   setting the input field as required so the user cant skip the field. Also checking the user input with regex pattern to see if user input matches with alphabets and numbers.
+if a user enter anything other than alphabet and numbers an error is show.
+Also defining the allowed length of data to be 20. So if a user type more than 20 character a error is shown.         -->
+<div class="form-group">
+  <label for="Part">Part Name </label>
+  <!-- also the value is set in the form when user click on edit document button option on every record.
+Which help the user to see the previous value and update whatever is required.       -->
+  <input  required value="<%= part.Part %>" type="text" pattern="[A-z0-9À-ž\s]+" name="Part" id="Part"  maxlength="25"  class="form-control">
+</div>
+ <!--   setting the price input field as required so the user cant skip the field. Also checking the user input is a number by defining the type. And step is used to get decimal number from user.
+if a user enter anything other than alphabet and numbers an error is show.
+Also defining the allowed length of data to be 10. So if a user type more than 10 numbers a error is show. the onkeypress prpery is used to check is the length of the string is more than 10.       -->
+<div class="form-group">
+  <label for="Price">Price</label>
+  <input  required value="<%= part.Price %>" type="number" step="0.01" name="Price" id="Price" onKeyPress="if(this.value.length>10) return false;" class="form-control">
+</div>
+
+
+
+
+ <!--  this is a cancel button. When clicked user is taken to the homepage - product section        -->
+<a href="/#products" class="btn btn-danger" >Cancel</a>
+<!--  this is a save button. When clicked user either creat new document or update an existing one.      -->
+
+ <button class="btn btn-primary"  type="submit" style="background-color: #f3bf3a;"> Save  </button>
