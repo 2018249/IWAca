@@ -6,7 +6,7 @@ const bodyParser = require('body-parser');
 //require('dotenv').config()
 
 
-var port = process.env.PORT || 5000;  // Declaring to ports to support heroku
+var port = process.env.PORT || 8000;  // Declaring to ports to support heroku
 
 
 app.use(bodyParser.json()); // Parsing the data in body to json data
@@ -32,7 +32,7 @@ app.get('/', async  (req,res)=> {// making a get request
 
 
 // connecting to database
-mongoose.connect(process.env.DATABASE_URL, { useNewUrlParser: true, useUnifiedTopology: true, }) // i am making a connection to the database using 
+mongoose.connect(process.env.dbPassword, { useNewUrlParser: true, useUnifiedTopology: true, }) // i am making a connection to the database using 
 // my environment variable which is saved in my gitpod. And successfully establishing connection to my database.
 
 const dbc = mongoose.connection
