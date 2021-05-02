@@ -1,14 +1,14 @@
-const express = require('express') // getting the express package
+const express = require('express') // get the express package
 
-const Part = require('../models/bakery-m') // getting the model
+const Part = require('../models/bakery-m') // get the model
 const router = express.Router()  // 
 
-// difining the route bakery new and rendering the static page. And a form is used to pass the user input to the api.
+// define the route bakery new and rendering the static page. A form is used to pass the user input to the api.
 router.get('/new', (req, res) => {
-  res.render('bake/new_part', { part: new Part() })// user input is passed to the database collection model.
+  res.render('bake/new_part', { part: new Part() })// user input pass to the database collection model.
 })
 
-router.get('/edit/:id', async (req, res) => {// defining new route to edit a car part.
+router.get('/edit/:id', async (req, res) => { // define new route to edit 
   const part = await Part.findById(req.params.id) // passing the user selected id to the database collection and the document is found using 
   // id and render to the edit page all the user selected id's data.
   res.render('bake/edit_part', { part: part })
@@ -16,11 +16,11 @@ router.get('/edit/:id', async (req, res) => {// defining new route to edit a car
 
 
 
-router.get('/:id', async (req, res) => {// getting a car part details from database collection using id
+router.get('/:id', async (req, res) => {// getting details from database collection using id
   const part = await Part.findById()
 
   if (part == null) { // checking if part is null. if true sending a status code 404 and a error message.
-    return res.status(404).json({ message: 'Cannot find Cakes by id' })
+    return res.status(404).json({ message: 'Cannot find Items by id' })
   }
   res.redirect('/')// redirect user to the homepage after the id is found
 
@@ -46,9 +46,9 @@ router.put('/:id', async (req, res, next) => {
 
 
 //delete request is used to deleted a document
-router.delete('/:id', async (req, res) => {  // getting the document id from the user
-  await Part.findByIdAndDelete(req.params.id)// finding the document and deleting the document from the collection
-  res.redirect('/#products')// rediricting the user to products page.
+router.delete('/:id', async (req, res) => {  // get document id from the user
+  await Part.findByIdAndDelete(req.params.id)// find document and delete document from the collection
+  res.redirect('/#products')// redirect user to page.
 
 
 })
@@ -62,12 +62,12 @@ function savePartAndRedirect(path) { // this function is used to pass all the us
     part.Flavour = req.body.Flavour
     part.Price = req.body.Price
     try {
-      part = await part.save() // everything is saved to the database collection
+      part = await part.save() // all saved to the database collection
 
-      res.redirect(`/#products`)// redirect user to the product page .
+      res.redirect(`/#products`)// redirect user to page .
     } catch (e) {
 
-      return res.status(400).json({ message: 'Validation fail for the request' }) // sending a status code 400 if we have a bad request.
+      return res.status(400).json({ message: 'Validation fail for the request' }) // sending a status code 400 if having bad request.
     }
   }
 }
