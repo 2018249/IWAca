@@ -1,9 +1,9 @@
 
 
-const mongoose = require('mongoose') // creating a const to access the package mongoose.
+const mongoose = require('mongoose'); // creating a const to access the package mongoose.
 
 
-const partSchema = new mongoose.Schema({ // defining the schema of the database collection for communication.
+const UserSchema = new mongoose.Schema({ // defining the schema of the database collection for communication.
 // Defining the structure of my database collection. 
 Manufacturer: {// defining the column in my collection
 type: String,// defining the type of 
@@ -52,7 +52,7 @@ max: 999999
 
 
 
-module.exports = mongoose.model('bakery', partSchema) // passing the model to the collection named bakery using the schema defined
+module.exports = mongoose.model('bakery', UserSchema) // passing the model to the collection named bakery using the schema defined
 
 
 

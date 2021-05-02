@@ -37,7 +37,7 @@ mongoose.connect(process.env.dbPassword, { useNewUrlParser: true, useUnifiedTopo
 
 const dbc = mongoose.connection
 
-dbc.once('open', () => console.log('Connected to Database!'))// checking if my database connection is open and if open printing out a message in the console.
+dbc.once('open', () => console.log('Connected to MongoDB!'))// checking if my database connection is open and if open printing out a message in the console.
 // that the server is connected to database. 
 dbc.on('error', (error) => console.error(error))// checking if there is an error in the connection and printing the error in my console.
 
@@ -45,8 +45,8 @@ dbc.on('error', (error) => console.error(error))// checking if there is an error
 
 app.use('/bakery', partRouter) // 
 
-//app.listen(5000, () => console.log('Server Started'))
+//app.listen(8000, () => console.log('Server Started'))
 
 app.listen(port, function(error){ // Listening to the server on the avaliable port either 5000 or avaliable one. Also show error if their is any.
-    console.log('Server Started on port: ' + port);// Server Running Console Message
+    console.log('Server running on port: ' + port);// Server Running Console Message
 });
