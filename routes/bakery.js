@@ -20,23 +20,23 @@ router.get('/:id', async (req, res) => {// getting a car part details from datab
   const part = await Part.findById()
 
   if (part == null) { // checking if part is null. if true sending a status code 404 and a error message.
- return res.status(404).json({message: 'Cannot find Cakes by id'})
-  } 
+    return res.status(404).json({ message: 'Cannot find Cakes by id' })
+  }
   res.redirect('/')// redirect user to the homepage after the id is found
-   
+
 })
 
 // creating new record.
 // post is used to create a new record with the information submited in the user in the form.
 router.post('/', async (req, res, next) => {
   req.part = new Part() // this is passed on to the database schema and new record is created.
-  next() 
+  next()
 
 }, savePartAndRedirect('new')) // calling the function to create new record
 
 // put is used to update a record in the collection
 // a put request is sent using the document id to the database and the document 
-router.put('/:id', async (req, res, next) => { 
+router.put('/:id', async (req, res, next) => {
   req.part = await Part.findById(req.params.id) // finding the document with the help of id request by user.
   next()
 
@@ -46,8 +46,8 @@ router.put('/:id', async (req, res, next) => {
 
 
 //delete request is used to deleted a document
-router.delete('/:id', async (req, res)=> {  // getting the document id from the user
-    await Part.findByIdAndDelete(req.params.id)// finding the document and deleting the document from the collection
+router.delete('/:id', async (req, res) => {  // getting the document id from the user
+  await Part.findByIdAndDelete(req.params.id)// finding the document and deleting the document from the collection
   res.redirect('/#products')// rediricting the user to products page.
 
 
@@ -64,10 +64,10 @@ function savePartAndRedirect(path) { // this function is used to pass all the us
     try {
       part = await part.save() // everything is saved to the database collection
 
-     res.redirect(`/#products`)// redirect user to the product page .
+      res.redirect(`/#products`)// redirect user to the product page .
     } catch (e) {
- 
- return res.status(400).json({message: 'Validation fail for the request'}) // sending a status code 400 if we have a bad request.
+
+      return res.status(400).json({ message: 'Validation fail for the request' }) // sending a status code 400 if we have a bad request.
     }
   }
 }
