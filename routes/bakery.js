@@ -1,17 +1,17 @@
 const express = require('express') // getting the express package
 
-const Part = require('../models/carpart-m') // getting the model
+const Part = require('../models/bakery-m') // getting the model
 const router = express.Router()  // 
 
-// difining the route carparts new and rendering the static page. And a form is used to pass the user input to the api.
+// difining the route bakery new and rendering the static page. And a form is used to pass the user input to the api.
 router.get('/new', (req, res) => {
-  res.render('carpart/new_part', { part: new Part() })// user input is passed to the database collection model.
+  res.render('bake/new_part', { part: new Part() })// user input is passed to the database collection model.
 })
 
 router.get('/edit/:id', async (req, res) => {// defining new route to edit a car part.
   const part = await Part.findById(req.params.id) // passing the user selected id to the database collection and the document is found using 
   // id and render to the edit page all the user selected id's data.
-  res.render('carpart/edit_part', { part: part })
+  res.render('bake/edit_part', { part: part })
 })
 
 

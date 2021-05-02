@@ -1,7 +1,7 @@
 const express = require('express')
 const app = express()
 const mongoose = require('mongoose')
-const Part = require('./models/carpart-m')
+const Part = require('./models/bakery-m')
 const bodyParser = require('body-parser');
 //require('dotenv').config()
 
@@ -12,7 +12,7 @@ var port = process.env.PORT || 8000;  // Declaring to ports to support heroku
 app.use(bodyParser.json()); // Parsing the data in body to json data
 
 // Routes Declare
-const partRouter = require('./routes/carparts') // routes for api
+const partRouter = require('./routes/bakery') // routes for api
 const methodOverride = require('method-override')// package used to update and delete a document via post request.
 
 app.set('view engine', 'ejs')  // pulling up my static webpage
@@ -20,15 +20,15 @@ app.set('view engine', 'ejs')  // pulling up my static webpage
 app.use(express.urlencoded({ extended: false})) // this is a middlewear function which comes with the express package.
 // it enable us to use URL-encoded data with the querystring library.
 app.use(methodOverride('_omethod'))// using the method in the app. 
-app.use(express.static('views/carpart')) // making my folder public to access my css and javascript for my html page.
+app.use(express.static('views/bake')) // making my folder public to access my css and javascript for my html page.
 
 
 //Render html file homepage
 app.get('/', async  (req,res)=> {// making a get request
    const parts = await Part.find();  // this will find all my data from my database collection with the help of model and assign it on to the const parts
 
-    res.render('carpart/index' , {parts: parts})// This will render all the database collection data which was assigned on to the const parts
-})                                           // to my static webpage in views/carpart folder and display it to my table on my webpage.
+    res.render('bake/index' , {parts: parts})// This will render all the database collection data which was assigned on to the const parts
+})                                           // to my static webpage in views/bake folder and display it to my table on my webpage.
 
 
 // connecting to database
@@ -43,7 +43,7 @@ dbc.on('error', (error) => console.error(error))// checking if there is an error
 
 
 
-app.use('/carparts', partRouter) // 
+app.use('/bakery', partRouter) // 
 
 //app.listen(5000, () => console.log('Server Started'))
 

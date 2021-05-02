@@ -52,7 +52,7 @@ max: 999999
 
 
 
-module.exports = mongoose.model('carparts', partSchema) // passing the model to the collection named carparts using the schema defined
+module.exports = mongoose.model('bakery', partSchema) // passing the model to the collection named bakery using the schema defined
 
 
 
