@@ -17,17 +17,17 @@ const methodOverride = require('method-override')// package used to update and d
 
 app.set('view engine', 'ejs')  // pulling up my static webpage
 
-app.use(express.urlencoded({ extended: false})) // this is a middlewear function which comes with the express package.
+app.use(express.urlencoded({ extended: false })) // this is a middlewear function which comes with the express package.
 // it enable us to use URL-encoded data with the querystring library.
 app.use(methodOverride('_omethod'))// using the method in the app. 
 app.use(express.static('views/bake')) // making my folder public to access my css and javascript for my html page.
 
 
 //Render html file homepage
-app.get('/', async  (req,res)=> {// making a get request
-   const parts = await Part.find();  // this will find all my data from my database collection with the help of model and assign it on to the const parts
+app.get('/', async (req, res) => {// making a get request
+    const parts = await Part.find();  // this will find all my data from my database collection with the help of model and assign it on to the const parts
 
-    res.render('bake/index' , {parts: parts})// This will render all the database collection data which was assigned on to the const parts
+    res.render('bake/index', { parts: parts })// This will render all the database collection data which was assigned on to the const parts
 })                                           // to my static webpage in views/bake folder and display it to my table on my webpage.
 
 
@@ -47,6 +47,6 @@ app.use('/bakery', partRouter) //
 
 //app.listen(8000, () => console.log('Server Started'))
 
-app.listen(port, function(error){ // Listening to the server on the avaliable port either 5000 or avaliable one. Also show error if their is any.
+app.listen(port, function (error) { // Listening to the server on the avaliable port either 5000 or avaliable one. Also show error if their is any.
     console.log('Server running on port: ' + port);// Server Running Console Message
 });
