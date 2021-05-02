@@ -20,7 +20,7 @@ router.get('/:id', async (req, res) => {// getting a car part details from datab
   const part = await Part.findById()
 
   if (part == null) { // checking if part is null. if true sending a status code 404 and a error message.
- return res.status(404).json({message: 'Cannot find Car Parts by id'})
+ return res.status(404).json({message: 'Cannot find Cakes by id'})
   } 
   res.redirect('/')// redirect user to the homepage after the id is found
    
@@ -57,10 +57,10 @@ router.delete('/:id', async (req, res)=> {  // getting the document id from the 
 function savePartAndRedirect(path) { // this function is used to pass all the user input to schema to create/ update
   return async (req, res) => {
     let part = req.part
-    part.Manufacturer = req.body.Manufacturer
-    part.Model = req.body.Model
-    part.Part = req.body.Part
-     part.Price = req.body.Price
+    part.Categories = req.body.Categories
+    part.Size = req.body.Size
+    part.Flavour = req.body.Flavour
+    part.Price = req.body.Price
     try {
       part = await part.save() // everything is saved to the database collection
 

@@ -4,31 +4,31 @@
 <!--    creating a from and calling the bootstrap form class for better display           -->
   <!--   validating user input in form and linking every field data to corresponding id. Therby submiting it as a form        -->
 <div class="form-group">
-  <label for="Manufacturer">Manufacturer</label>
+  <label for="Categories">Categories</label>
 
   <!--   setting the input field as required so the user cant skip the field. Also checking the user input with regex pattern to see if user input matches with alphabets.
 if a user enter anything other than alphabet an error is show.
 Also defining the allowed length of data to be 25. So if a user type more than 25 character a error is shown.         -->
-  <input  required value="<%= part.Manufacturer %>" type="text" pattern="[A-zÀ-ž\s]+"  name="Manufacturer" id="Manufacturer" maxlength="25" class="form-control">
+  <input  required value="<%= part.Categories %>" type="text" pattern="[A-zÀ-ž\s]+"  name="Categories" id="Categories" maxlength="25" class="form-control">
 </div>
  <!--   setting the input field as required so the user cant skip the field. Also checking the user input with regex pattern to see if user input matches with alphabets and numbers.
 if a user enter anything other than alphabet and numbers an error is show.
 Also defining the allowed length of data to be 20. So if a user type more than 20 character a error is shown.         -->
 
 <div class="form-group">
-  <label for="Model">Model</label>
+  <label for="Size">Size</label>
 
-  <input  required value="<%= part.Model %>" type="text" pattern="[A-z0-9À-ž\s]+" name="Model" id="Model"   maxlength="20" class="form-control">
+  <input  required value="<%= part.Size %>" type="text" pattern="[A-z0-9À-ž\s]+" name="Size" id="Size"   maxlength="20" class="form-control">
 </div>
 
  <!--   setting the input field as required so the user cant skip the field. Also checking the user input with regex pattern to see if user input matches with alphabets and numbers.
 if a user enter anything other than alphabet and numbers an error is show.
 Also defining the allowed length of data to be 20. So if a user type more than 20 character a error is shown.         -->
 <div class="form-group">
-  <label for="Part">Part Name </label>
+  <label for="Flavour">Flavour </label>
   <!-- also the value is set in the form when user click on edit document button option on every record.
 Which help the user to see the previous value and update whatever is required.       -->
-  <input  required value="<%= part.Part %>" type="text" pattern="[A-z0-9À-ž\s]+" name="Part" id="Part"  maxlength="25"  class="form-control">
+  <input  required value="<%= part.Flavour %>" type="text" pattern="[A-z0-9À-ž\s]+" name="Flavour" id="Flavour"  maxlength="25"  class="form-control">
 </div>
  <!--   setting the price input field as required so the user cant skip the field. Also checking the user input is a number by defining the type. And step is used to get decimal number from user.
 if a user enter anything other than alphabet and numbers an error is show.
@@ -45,4 +45,4 @@ Also defining the allowed length of data to be 10. So if a user type more than 1
 <a href="/#products" class="btn btn-danger" >Cancel</a>
 <!--  this is a save button. When clicked user either creat new document or update an existing one.      -->
 
- <button class="btn btn-primary"  type="submit" style="background-color: #f3bf3a;"> Save  </button>
+ <button class="btn btn-primary"  type="submit" style="background-color: #f0f33a;"> Save  </button>
