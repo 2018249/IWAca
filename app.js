@@ -35,11 +35,11 @@ app.get('/', async  (req,res)=> {// making a get request
 mongoose.connect(process.env.dbPassword, { useNewUrlParser: true, useUnifiedTopology: true, }) // i am making a connection to the database using 
 // my environment variable which is saved in my gitpod. And successfully establishing connection to my database.
 
-const dbc = mongoose.connection
+const dbPassword = mongoose.connection
 
-dbc.once('open', () => console.log('Connected to MongoDB!'))// checking if my database connection is open and if open printing out a message in the console.
+dbPassword.once('open', () => console.log('Connected to MongoDB!'))// checking if my database connection is open and if open printing out a message in the console.
 // that the server is connected to database. 
-dbc.on('error', (error) => console.error(error))// checking if there is an error in the connection and printing the error in my console.
+dbPassword.on('error', (error) => console.error(error))// checking if there is an error in the connection and printing the error in my console.
 
 
 
