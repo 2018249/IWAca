@@ -49,7 +49,7 @@ max: 999999
 
 
 
-module.exports = mongoose.model('bakery', UserSchema) // passing the model to the collection named bakery using the schema defined
+module.exports = mongoose.model('bakery-m', UserSchema) // passing the model to the collection named bakery using the schema defined
 
 
 
